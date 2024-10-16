@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom"; 
 import beefBurgerImg from '../assets/menu1.png';
 import chickenPizzaImg from '../assets/menu2.png';
 import freshPastaImg from '../assets/menu3.png';
@@ -15,7 +15,7 @@ const MenuComponent = () => {
     { name: "Hot Sushi", img: hotSushiImg },
     { name: "Drink & Juice", img: drinkImg },
   ]);
-  const [selectedCategory, setSelectedCategory] = useState(categories[0].name); // Set to the first category initially
+  const [selectedCategory, setSelectedCategory] = useState(categories[0].name); 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -40,10 +40,10 @@ const MenuComponent = () => {
   }, []);
 
   const handleCategoryChange = (category) => {
-    setSelectedCategory(category.name); // Update selected category based on user click
+    setSelectedCategory(category.name);
   };
 
-  // Filter menu items based on the selected category
+ 
   const filteredMenuItems = menuItems.filter(item => item.category === selectedCategory);
 
   if (loading) {
@@ -76,7 +76,7 @@ const MenuComponent = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {filteredMenuItems.length > 0 ? ( // Check if there are items to display
+            {filteredMenuItems.length > 0 ? ( 
               filteredMenuItems.map((item, index) => (
                 <div key={index} className="bg-gray-100 p-4 rounded-lg flex items-start space-x-4">
                   <img src={item.image} alt={item.name} className="w-16 h-16 rounded-full" />
@@ -84,7 +84,7 @@ const MenuComponent = () => {
                     <div className="flex justify-between items-center">
                       <h3 className="text-lg font-bold">
                         <Link 
-                          to={`/menu/${item._id}`} // Adjust the property according to your backend ID
+                          to={`/menu/${item._id}`} 
                           className="hover:text-red-600"
                         >
                           {item.name}
@@ -109,7 +109,7 @@ const MenuComponent = () => {
                 </div>
               ))
             ) : (
-              <div className="text-center text-gray-600">No items available for this category.</div> // Message if no items are available
+              <div className="text-center text-gray-600">No items available for this category.</div> 
             )}
           </div>
         </div>

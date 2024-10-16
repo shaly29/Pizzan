@@ -1,4 +1,4 @@
-// SpecialOffer.js
+
 import React from 'react';
 import backgroundImage from '../assets/offer.png'; 
 
@@ -6,7 +6,7 @@ const SpecialOffer = () => {
   return (
     <section
     className="relative bg-cover bg-center text-white"
-    style={{ backgroundImage: `url(${backgroundImage})` }}  // Use the imported image
+    style={{ backgroundImage: `url(${backgroundImage})` }}  
   >
       <div className="bg-black bg-opacity-50 py-32 text-left">
         <div className="container mx-auto">

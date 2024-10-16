@@ -1,15 +1,13 @@
 import React from 'react';
 
-// Importing local images from the assets folder
 import Chef1 from '../assets/chef.jpg';
 import Chef2 from '../assets/chef3.jpg';
 import Chef3 from '../assets/chef.jpg';
 import Chef4 from '../assets/chef3.jpg';
 
-// Array of chefs with imported image paths
 const chefs = [
   {
-    imageUrl: Chef1,  // Imported image
+    imageUrl: Chef1, 
     alt: "Chef 1",
   },
   {
@@ -26,18 +24,16 @@ const chefs = [
   },
 ];
 
-// ChefCard Component to display each chef's information
 const ChefCard = ({ imageUrl, alt }) => (
   <div className="flex flex-col items-center">
     <img
-      className=" h-64 rounded-lg object-cover"  // Adjust width and height here
+      className=" h-64 rounded-lg object-cover" 
       src={imageUrl}
       alt={alt}
     />
   </div>
 );
 
-// MeetOurChefs Component to display all chefs
 const MeetOurChefs = () => {
   return (
     <div className="bg-white py-10">

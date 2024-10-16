@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import PastaDish from '../assets/abo.jpg';  // Ensure the path is correct
-import CEOImage from '../assets/ceo.jpeg';  // Ensure the path is correct
-import FastFoodImage from '../assets/abo.jpg';  // Ensure the path is correct
-import HealthyFoodImage from '../assets/fast.png';  // Ensure the path is correct
+import PastaDish from '../assets/abo.jpg';  
+import CEOImage from '../assets/ceo.jpeg'; 
+import FastFoodImage from '../assets/abo.jpg'; 
+import HealthyFoodImage from '../assets/fast.png'; 
 import { FaPlay } from 'react-icons/fa';
 import { AiOutlineClose } from 'react-icons/ai';
 
@@ -11,13 +11,13 @@ const AboutUs = () => {
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [showVideoPopup, setShowVideoPopup] = useState(false);
 
-  // Handle button click and animation
+ 
   const handleButtonClick = () => {
     setIsButtonClicked(true);
     setTimeout(() => setIsButtonClicked(false), 1000);
   };
 
-  // Handle video popup toggle
+ 
   const toggleVideoPopup = () => {
     setShowVideoPopup((prev) => !prev);
   };
@@ -25,14 +25,14 @@ const AboutUs = () => {
   return (
     <section className="bg-white py-16 px-8">
       <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between">
-        {/* Left Section: Image with Play Button */}
+        
         <div className="lg:w-1/2 relative mb-8 lg:mb-0">
           <img
             src={PastaDish}
             alt="Pasta Dish"
             className="w-full object-cover rounded-lg shadow-lg"
           />
-          {/* Play Button Overlay */}
+         
           <div className="absolute bottom-4 right-4 flex items-center justify-center">
             <button
               onClick={toggleVideoPopup}
@@ -44,7 +44,7 @@ const AboutUs = () => {
           </div>
         </div>
 
-        {/* Right Section: About Content */}
+        
         <div className="lg:w-1/2 lg:pl-16">
           <h3 className="text-red-500 font-bold text-xl mb-2">About Company</h3>
           <h2 className="text-3xl font-bold mb-6">Where quality food meets excellent service</h2>
@@ -54,7 +54,7 @@ const AboutUs = () => {
             the extra mile.
           </p>
 
-          {/* Fast and Healthy Foods Section */}
+          
           <div className="flex space-x-8 mb-6">
             <div className="relative bg-white shadow-lg p-4 rounded-lg text-left">
               <img
@@ -76,9 +76,9 @@ const AboutUs = () => {
             </div>
           </div>
 
-          {/* CEO Section */}
+         
           <div className="flex items-center mt-6 space-x-6">
-            {/* Animated Button */}
+           
             <Link to="/about">
               <button
                 onClick={handleButtonClick}
@@ -102,7 +102,7 @@ const AboutUs = () => {
         </div>
       </div>
 
-      {/* Video Popup Modal */}
+     
       {showVideoPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="relative bg-white rounded-lg p-6 max-w-lg w-full">
@@ -113,17 +113,8 @@ const AboutUs = () => {
             >
               <AiOutlineClose className="w-6 h-6" />
             </button>
-            <div className="relative h-0 pb-[56.25%]"> {/* Maintain aspect ratio 16:9 */}
-              {/* <iframe 
-                width="100%" 
-                height="100%" 
-                src="https://www.youtube.com/embed/cEUNUr9gfz8" 
-                title="Domino's Pizza Recipe in Tamil" 
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerPolicy="strict-origin-when-cross-origin" 
-                allowFullScreen
-              ></iframe> */}
+            <div className="relative h-0 pb-[56.25%]"> 
+             
               <iframe width="500" height="300" src="https://www.youtube.com/embed/cEUNUr9gfz8" title="ஓவன் இல்லாமல் வீட்டிலேயே ஈசியா Domino&#39;s பீட்ஸா செய்ங்க👌| Domino&#39;s Pizza Recipe in Tamil | pizza" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
               allowfullscreen></iframe>
             </div>

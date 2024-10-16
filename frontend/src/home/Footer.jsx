@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white py-10">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
-        {/* About Section */}
+        
         <div className="col-span-1">
           <h2 className="text-xl font-bold mb-4">About Restaurant</h2>
           <p className="text-sm">
@@ -12,14 +12,14 @@ const Footer = () => {
             Objectively repurpose user-centric core competencies.
           </p>
           <div className="mt-4 flex space-x-3">
-            {/* Social Media Icons (replace # with actual links) */}
+            
             <a href="#" className="text-gray-400 hover:text-white">FB</a>
             <a href="#" className="text-gray-400 hover:text-white">TW</a>
             <a href="#" className="text-gray-400 hover:text-white">IG</a>
           </div>
         </div>
 
-        {/* Menu Section */}
+       
         <div className="col-span-1">
           <h2 className="text-xl font-bold mb-4">Our Menu</h2>
           <ul className="space-y-2">
@@ -31,8 +31,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Recent Posts Section */}
-       {/* Recent Posts Section */}
+       
 <div className="col-span-1">
   <h2 className="text-xl font-bold mb-4">Recent Posts</h2>
   <ul className="space-y-4">
@@ -66,7 +65,7 @@ const Footer = () => {
 </div>
 
 
-        {/* Contact Section */}
+       
         <div className="col-span-1">
           <h2 className="text-xl font-bold mb-4">Contact Now</h2>
           <p>1400 Washington Ave, New Orleans</p>
@@ -76,7 +75,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Subscribe Section */}
+     
       <div className="mt-10 bg-gray-800 py-4">
         <div className="container mx-auto flex justify-between items-center">
           <p className="text-sm">Subscribe Our Newsletter</p>
@@ -93,7 +92,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Footer Bottom */}
+      
       <div className="mt-4 bg-gray-900 text-center py-4 text-gray-400 text-xs">
         <p>© 2023 Thernobify. All Rights Reserved.</p>
         <p>

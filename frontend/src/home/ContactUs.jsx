@@ -8,8 +8,8 @@ const ContactUs = () => {
   const handleSend = () => {
     setIsSent(true);
     setTimeout(() => {
-      setIsSent(false); // Reset after a while for demo purposes
-    }, 3000); // 3 seconds reset delay
+      setIsSent(false); 
+    }, 3000); 
   };
 
   return (
@@ -22,7 +22,7 @@ const ContactUs = () => {
       </small>
 
       <div className="relative">
-        {/* Letter */}
+      
         <article
           className={`letter relative w-96 bg-white shadow-md rounded-lg transition-transform duration-700 ${
             isSent ? 'transform scale-50 -translate-y-32' : ''
@@ -33,7 +33,7 @@ const ContactUs = () => {
             <p>
               <textarea
                 placeholder="Your message"
-                className="w-full h-32 p-2 mt-4 bg-transparent border-b border-yellow-300 outline-none"
+                className="w-full h-32 p-2 mt-4 bg-transparent border-b border-red-300 outline-none"
               ></textarea>
             </p>
           </div>
@@ -42,14 +42,14 @@ const ContactUs = () => {
               <input
                 type="text"
                 placeholder="Your name"
-                className="w-full p-2 bg-transparent border-b border-yellow-300 outline-none"
+                className="w-full p-2 bg-transparent border-b border-red-300 outline-none"
               />
             </p>
             <p>
               <input
                 type="email"
                 placeholder="Your email"
-                className="w-full p-2 mt-4 bg-transparent border-b border-yellow-300 outline-none"
+                className="w-full p-2 mt-4 bg-transparent border-b border-red-300 outline-none"
               />
             </p>
             <p>
@@ -64,14 +64,14 @@ const ContactUs = () => {
           </div>
         </article>
 
-        {/* Envelope animation */}
+        
         <div
           className={`envelope front w-40 h-24 absolute top-4 transform origin-top transition-opacity duration-500 ${
             isSent ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <div className="absolute left-0 w-48 h-24 transform rotate-30 bg-yellow-300 shadow-md"></div>
-          <div className="absolute right-0 w-48 h-24 transform -rotate-30 bg-yellow-300 shadow-md"></div>
+          <div className="absolute left-0 w-48 h-24 transform rotate-30 bg-red-300 shadow-md"></div>
+          <div className="absolute right-0 w-48 h-24 transform -rotate-30 bg-red-300 shadow-md"></div>
         </div>
 
         <div
@@ -79,7 +79,7 @@ const ContactUs = () => {
             isSent ? 'opacity-100 translate-y-8' : 'opacity-0 -translate-y-16'
           }`}
         >
-          <div className="w-40 h-40 bg-yellow-300 transform scale-y-75 rotate-45 rounded"></div>
+          <div className="w-40 h-40 bg-red-300 transform scale-y-75 rotate-45 rounded"></div>
         </div>
 
         {/* Success Message */}
