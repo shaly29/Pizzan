@@ -6,7 +6,7 @@ const FoodItems = () => {
   const [foodItems, setFoodItems] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:4007/api/v1/menu')
+    axios.get('http://localhost:4001/api/v1/menu')
       .then(response => {
         console.log(response.data); 
         setFoodItems(response.data);
