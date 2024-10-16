@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 
 import userRoute from "./route/userRoute.js";
-import orderRoutes from "./route/orderRoute.js";
+
 
 import menuRoutes from './route/menuRoute.js';
 import reservationRoutes from './route/reservationRoute.js';
@@ -32,7 +32,6 @@ try {
 
 // defining routes
 app.use("/api/v1", userRoute);
-app.use("/orders", orderRoutes);
 app.use('/api/v1/menu', menuRoutes);
 app.use('/api', reservationRoutes);
 
