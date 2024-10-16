@@ -1,6 +1,8 @@
 import asyncHandler from 'express-async-handler';
 import Menu from '../model/menuModel.js';
 import cloudinary from '../utils/cloudinary.js';
+
+
 // @desc Create a new menu item
 // @route POST /api/menu
 // @access Private
@@ -8,18 +10,18 @@ const createMenuItem = asyncHandler(async (req, res) => {
   try {
     const { name, description, price, category, rating, discount } = req.body;
 
-    // Ensure the file is uploaded
+    
     if (!req.file) {
       return res.status(400).json({ message: 'Image file is required' });
     }
 
-    // Upload file to Cloudinary
+   
     const result = await cloudinary.uploader.upload(req.file.path, {
       folder: 'menu-items',
       public_id: `menu_${Date.now()}`,
     });
 
-    // Create the menu item
+    
     const menuItem = await Menu.create({
       name,
       description,
