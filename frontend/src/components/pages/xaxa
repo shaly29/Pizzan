@@ -1,0 +1,45 @@
+import React, { useState } from "react";
+import { FaHeart, FaShoppingCart } from "react-icons/fa";
+import "../components/pages/style.css"; // Ensure the CSS file is correctly linked
+
+function BookCard({ item }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleOpen = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <div className="book-card-container">
+      <div className={`book ${isOpen ? "open" : ""}`} onClick={toggleOpen}>
+        {/* Left Page - Display Image */}
+        <div className={`page left-page shadow-xl dark:bg-slate-900 dark:text-white ${isOpen ? "hidden" : ""}`}>
+          <img
+            src={item.image}
+            alt={item.name}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+      
+
+        {/* Book Details - Displayed When the Book is Open */}
+        {isOpen && (
+          <div className="book-details p-4 dark:bg-gray-800 dark:text-white">
+            <div className="page-content p-4">
+              <h2 className="page-title">{item.name}</h2>
+              <p className="author">{item.author}</p>
+            </div>
+            <div className="text-3xl mb-4">Rs. {item.price}</div>
+            <div className="cursor-pointer px-4 py-2 rounded-full border-2 bg-[#117c6f] text-white hover:bg-pink-500 duration-200">
+              Buy Now
+            </div>
+            <p className="description mt-4">{item.description}</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default BookCard;
