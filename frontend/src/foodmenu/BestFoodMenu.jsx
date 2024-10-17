@@ -22,7 +22,7 @@ const MenuComponent = () => {
   useEffect(() => {
     const fetchMenuItems = async () => {
       try {
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/menu`);
+        const response = await fetch('http://localhost:4001/api/v1/menu');
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
         }
@@ -43,6 +43,7 @@ const MenuComponent = () => {
     setSelectedCategory(category.name);
   };
 
+ 
   const filteredMenuItems = menuItems.filter(item => item.category === selectedCategory);
 
   if (loading) {
