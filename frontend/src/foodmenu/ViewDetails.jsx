@@ -13,7 +13,7 @@ const ViewDetails = () => {
   
   useEffect(() => {
   
-    axios.get(`http://localhost:4001/api/v1/menu/${id}`)
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/menu/${id}`)
       .then(response => {
         setFoodItem(response.data);
       })
@@ -28,7 +28,7 @@ const ViewDetails = () => {
   const handleReviewSubmit = (e) => {
     e.preventDefault();
    
-    axios.post(`http://localhost:4001/api/v1/reviews`, { review, rating, foodItemId: id })
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/v1/reviews`, { review, rating, foodItemId: id })
       .then(() => {
         console.log('Review submitted:', review, 'Rating:', rating);
         setReview('');

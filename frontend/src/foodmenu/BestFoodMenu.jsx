@@ -20,6 +20,7 @@ const MenuComponent = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    console.log("Fetching product with ID:",);
     const fetchMenuItems = async () => {
       try {
         const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/menu`); // Use environment variable

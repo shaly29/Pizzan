@@ -13,7 +13,7 @@ const app = express();
 
 app.use(
     cors({
-      origin: [process.env.REACT_APP_BACKEND_URL ],
+      origin: ["https://pizzanfrontend.vercel.app/"],
       methods: ["GET", "POST", "PUT", "DELETE"],
       credentials: true,
     })
