@@ -39,7 +39,7 @@ const MenuForm = () => {
     formData.append('image', image);
 
     try {
-      const response = await axios.post('http://localhost:4001/api/v1/menu/new', formData, {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/menu/new`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
