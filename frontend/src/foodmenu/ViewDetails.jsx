@@ -13,7 +13,7 @@ const ViewDetails = () => {
   
   useEffect(() => {
   
-    axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/menu/${id}`)
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/menu/${id}`)
       .then(response => {
         setFoodItem(response.data);
       })

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import beefBurgerImg from '../assets/menu1.png';
 import chickenPizzaImg from '../assets/menu2.png';
 import freshPastaImg from '../assets/menu3.png';
@@ -16,22 +16,25 @@ const MenuComponent = () => {
     { name: "Hot Sushi", img: hotSushiImg },
     { name: "Drink & Juice", img: drinkImg },
   ]);
-  const [selectedCategory, setSelectedCategory] = useState(categories[0].name); 
+  const [selectedCategory, setSelectedCategory] = useState(categories[0].name);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const fetchMenuItems = async () => {
-    try {
-      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/menu`);
-      setMenuItems(response.data); // Set data from the response
-      setLoading(false); // Loading is done
-    } catch (error) {
-      console.error('Error fetching menu items:', error);
-      setError(error.message);
-      setLoading(false);
-    }
-  };
-  
+  useEffect(() => {
+    const fetchMenuItems = async () => {
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/menu`);
+        setMenuItems(response.data); // Set data from the response
+        setLoading(false); // Loading is done
+      } catch (error) {
+        console.error('Error fetching menu items:', error);
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+    
+    fetchMenuItems();
+  }, []); // Dependency array ensures this runs on mount
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category.name);
@@ -40,7 +43,7 @@ const MenuComponent = () => {
   const filteredMenuItems = menuItems.filter(item => item.category === selectedCategory);
 
   if (loading) {
-    return <div>Loading waite a few minute ...</div>;
+    return <div>Loading, please wait...</div>;
   }
 
   if (error) {
@@ -69,7 +72,7 @@ const MenuComponent = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {filteredMenuItems.length > 0 ? ( 
+            {filteredMenuItems.length > 0 ? (
               filteredMenuItems.map((item, index) => (
                 <div key={index} className="bg-gray-100 p-4 rounded-lg flex items-start space-x-4">
                   <img src={item.image} alt={item.name} className="w-16 h-16 rounded-full" />
@@ -102,7 +105,7 @@ const MenuComponent = () => {
                 </div>
               ))
             ) : (
-              <div className="text-center text-gray-600">No items available for this category.</div> 
+              <div className="text-center text-gray-600">No items available for this category.</div>
             )}
           </div>
         </div>
