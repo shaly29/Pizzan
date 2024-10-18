@@ -5,6 +5,7 @@ import chickenPizzaImg from '../assets/menu2.png';
 import freshPastaImg from '../assets/menu3.png';
 import hotSushiImg from '../assets/menu4.png';
 import drinkImg from '../assets/menu5.png';
+import axios from 'axios';
 
 const MenuComponent = () => {
   const [menuItems, setMenuItems] = useState([]);
@@ -19,26 +20,18 @@ const MenuComponent = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    console.log("Fetching product with ID:",);
-    const fetchMenuItems = async () => {
-      try {
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/menu`); // Use environment variable
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status} - ${response.statusText}`);
-        }
-        const data = await response.json();
-        setMenuItems(data);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching menu items:', error);
-        setError(error.message);
-        setLoading(false);
-      }
-    };
-
-    fetchMenuItems();
-  }, []);
+  const fetchMenuItems = async () => {
+    try {
+      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/menu`);
+      setMenuItems(response.data); // Set data from the response
+      setLoading(false); // Loading is done
+    } catch (error) {
+      console.error('Error fetching menu items:', error);
+      setError(error.message);
+      setLoading(false);
+    }
+  };
+  
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category.name);
@@ -47,7 +40,7 @@ const MenuComponent = () => {
   const filteredMenuItems = menuItems.filter(item => item.category === selectedCategory);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Loading waite a few minute ...</div>;
   }
 
   if (error) {

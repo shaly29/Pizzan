@@ -1,7 +1,8 @@
 import express from "express";
+import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import cors from "cors";
+
 
 import userRoute from "./route/userRoute.js";
 
@@ -11,13 +12,14 @@ import reservationRoutes from './route/reservationRoute.js';
 
 const app = express();
 
-app.use(
-    cors({
-      origin: ["https://pizzanfrontend.vercel.app/"],
-      methods: ["GET", "POST", "PUT", "DELETE"],
-      credentials: true,
-    })
-  );
+// app.use(
+//     cors({
+//       origin: ['http://localhost:5173'],
+//       methods: ["GET", "POST", "PUT", "DELETE"],
+//       credentials: true,
+//     })
+//   );
+app.use(cors({ origin: 'https://pizzanfrontend.vercel.app/' }));
 
 app.use(express.json());
 
