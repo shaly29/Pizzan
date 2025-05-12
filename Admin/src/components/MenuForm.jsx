@@ -101,16 +101,7 @@ const MenuForm = () => {
           />
         </div>
 
-        <div>
-          <label className="block text-sm font-medium text-gray-700">Image</label>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageChange}
-            className="mt-1 p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-red-500"
-            required
-          />
-        </div>
+       
 
         {/* Image Preview Section */}
         {imagePreview && (
